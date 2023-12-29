@@ -44,3 +44,8 @@ When you are done using the app make sure to deactivate the virtual enviorment w
 * Battery charge thresholds (will not discharge if set to a lower level, you need to unplug the laptop).
 * Turning on/off the trackpad.
 * Turning on/off the FnLock.
+
+# Sidenote
+I have tried this on my Lenovo Ideapad Gaming 3 - 15IHU6 and haven't tested this on other ideapad laptops but im certain it should work on your machine as long as you have the `ideapad_laptop` kernel module loaded. 
+
+You can check if it's loaded with `lsmod | grep ideapad_laptop` command.
