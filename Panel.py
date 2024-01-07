@@ -5,10 +5,7 @@ from MiscModes import MiscellaneousModes
 class Panel:
     def __init__(self):
 
-        self.root = None
-
-        self.BatteryPanel = None
-        self.MiscPanel = None
+        pass
 
     def Load(self):
 

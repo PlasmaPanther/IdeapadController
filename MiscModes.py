@@ -6,8 +6,6 @@ class MiscellaneousModes:
 
         self.MiscRoot = root
 
-        self.FunctionFrame = None
-
         self.IdeapadACPIPath = "/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00"
        
         self.Touchpad = open(self.IdeapadACPIPath + "/touchpad", "r")

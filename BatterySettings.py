@@ -7,14 +7,6 @@ class BatterySettings:
 
         self.BatteryRoot = root
 
-        self.BatteryFrame = None
-
-        self.BatteryThresholdFrame = None
-
-        self.BatteryThresholdSlide = None
-        self.BatteryThresholdMin = None
-        self.BatteryThresholdMax = None
-
         self.BatteryChargeMin = 60
         self.BatteryChargeMax = 80
 
@@ -25,14 +17,8 @@ class BatterySettings:
         self.CurrentBatteryPercentage = int(subprocess.run(['cat /sys/class/power_supply/BAT*/capacity'], capture_output=True, text=True, shell=True).stdout)
 
         self.BatteryThresholdTxt = open("Preferences.txt", "r")
-
         self.BatteryThresholdPreference = int(self.BatteryThresholdTxt.read())
-
         self.BatteryThresholdTxt.close()
-
-        self.BatteryVar = None
-
-        self.BatteryFont = None
 
         # Get path and check charging mode
         self.IdeapadACPIPath = "/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00"
@@ -102,9 +88,6 @@ class BatterySettings:
         # placeholder_arg doesn't do anything
         # It's there because TKinter doesn't like it when the function has only the "self" arg
         # When passed to the slider widget
-        
-       # self.BatteryThresholdLabel.config(text=f'{int(self.BatteryThresholdSlide.get())}')
-        #self.BatteryThresholdPreference = int(self.BatteryThresholdSlide.get())
 
         if self.CurrentBatteryPercentage < int(self.BatteryThresholdSlide.get()) and not self.IsCharging:
             
@@ -112,6 +95,7 @@ class BatterySettings:
             self.BatteryFile = open(self.IdeapadACPIPath + "/conservation_mode", "w")
             self.BatteryFile.write(str(self.BatteryMode))
             self.BatteryFile.close()
+            
             self.ButtonVar.set("Balanced Mode")
             self.IsCharging = True
         
@@ -121,6 +105,7 @@ class BatterySettings:
             self.BatteryFile = open(self.IdeapadACPIPath + "/conservation_mode", "w")
             self.BatteryFile.write(str(self.BatteryMode))
             self.BatteryFile.close()
+            
             self.ButtonVar.set("Conservation Mode")
             self.IsCharging = False
             print("Battery threshold reached")
