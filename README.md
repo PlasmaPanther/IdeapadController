@@ -9,7 +9,7 @@ Install with:
 sudo apt install python3-tk
 ```
 # How to run
-Make sure you have `virtualvenv` installed on your system.
+Make sure you have `virtualenv` installed on your system.
 
 * Download the source code and unzip
 * Or
